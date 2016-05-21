@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>wordVector_tweetbotspotter</groupId>
-    <artifactId>wordVector_tweetbotspotter</artifactId>
+    <groupId>tweetWord2Vec</groupId>
+    <artifactId>tweetWord2Vec</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 

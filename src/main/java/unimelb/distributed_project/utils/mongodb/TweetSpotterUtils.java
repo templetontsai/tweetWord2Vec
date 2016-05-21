@@ -101,7 +101,7 @@ public class TweetSpotterUtils {
         //log.debug("Started on port " + server.getPort());
     }
 
-    public static boolean saveDBTweetTofile(String fileName) throws Exception {
+    public static boolean saveDBTweetToFile(String fileName) throws Exception {
         DBInterface dbConn = new MongoDBImpl();
 
         String tweetStore = "EU_Refugee";
@@ -111,12 +111,14 @@ public class TweetSpotterUtils {
         f.delete();
         f.createNewFile();
         final BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
-        List<String> lines = new ArrayList<String>();
+
         iterableDocs.forEach(new Block<Document>() {
 
             public void apply(final Document doc) {
                 String text = doc.getString("text");
                 text = text.trim();
+                text = text.replaceAll("(\\r|\\n)", " ");
+
 
 
                 try {

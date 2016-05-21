@@ -58,6 +58,20 @@ new FormModel {
 				"gridY": 7
 				"gridWidth": 5
 			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "label4"
+				"text": "Top words"
+			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+				"gridX": 11
+				"gridY": 7
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "topNearestWordtextField"
+			}, new FormLayoutConstraints( class com.jgoodies.forms.layout.CellConstraints ) {
+				"gridX": 13
+				"gridY": 7
+				"gridWidth": 5
+			} )
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane2"
 				add( new FormComponent( "javax.swing.JList" ) {

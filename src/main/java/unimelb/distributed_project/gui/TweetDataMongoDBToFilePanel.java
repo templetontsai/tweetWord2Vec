@@ -40,12 +40,13 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
                     @Override
                     public void run() {
                         try {
-                            if(TweetSpotterUtils.saveDBTweetTofile(tweetDataFilePath)) {
+                            if(TweetSpotterUtils.saveDBTweetToFile(tweetDataFilePath)) {
                                 JOptionPane.showMessageDialog(mainFrame,
                                         "Transform Done",
                                         "Transform Done",
                                         JOptionPane.INFORMATION_MESSAGE);
                                 tweetDataDBToFile.setEnabled(true);
+                                browseButton.setEnabled(true);
                             }
 
                         } catch (Exception e1) {
@@ -57,8 +58,9 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
 
                 tweetDBToFile.start();
                 tweetDataDBToFile.setEnabled(false);
+                browseButton.setEnabled(false);
 
-            } else {
+            }  else {
                 JOptionPane.showMessageDialog(this.mainFrame,
                         "Please suggest where to store tweet text file",
                         "file is not selected",
@@ -79,6 +81,8 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
             tweetDataFilePathTextField.setText("");
             tweetDataFilePathTextField.setText(tweetDataFilePath);
 
+            log.debug("Selected file: " + tweetDataFilePath);
+        } else if(!tweetDataFilePathTextField.equals("")) {
             log.debug("Selected file: " + tweetDataFilePath);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,

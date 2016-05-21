@@ -166,6 +166,8 @@ public final class TrainWord2VecPanel extends JPanel {
             word2vecPathTextField.setText(saveWord2VecPath);
 
             log.debug("Selected file: " + saveWord2VecPath);
+        } else if(!word2vecPathTextField.getText().equals("")) {
+            log.debug("Selected file: " + saveWord2VecPath);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
                     "word2vec file is not selected\nword2vec.txt will be generated under where the program is run",
@@ -190,6 +192,8 @@ public final class TrainWord2VecPanel extends JPanel {
 
             log.debug("Selected file: " + trainFilePath);
 
+        } else if(!trainingPathTextField.getText().equals("")) {
+            log.debug("Selected file: " + trainFilePath);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
                     "Train file is not selected",
@@ -247,6 +251,8 @@ public final class TrainWord2VecPanel extends JPanel {
                                     "Transform Done",
                                     JOptionPane.INFORMATION_MESSAGE);
                             button1.setEnabled(true);
+                            button2.setEnabled(true);
+                            saveToButton.setEnabled(true);
                         }
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -256,6 +262,8 @@ public final class TrainWord2VecPanel extends JPanel {
             });
             trainingThread.start();
             button1.setEnabled(false);
+            button2.setEnabled(false);
+            saveToButton.setEnabled(false);
         }
 
 

@@ -52,7 +52,7 @@ public final class Word2VecParameters {
         //Default
         private int windowSize = 5;
         private int minWordFeq = 5;
-        private int numIteration = 10;
+        private int numIteration = 5;
         private int layerSize = 100;
         private int seed = 40;
         private double learningRate = 0.025;
