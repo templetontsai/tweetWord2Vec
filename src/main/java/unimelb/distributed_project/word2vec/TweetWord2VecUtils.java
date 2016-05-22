@@ -88,7 +88,7 @@ public class TweetWord2VecUtils {
                 .seed(word2VecParameters.getSeed())
                 .windowSize(word2VecParameters.getWindowSize())
                 .iterate(iter)
-                //   .tokenizerFactory(t)
+                .tokenizerFactory(t)
                 .build();
 
         log.info("Fitting Word2Vec model....");
