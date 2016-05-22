@@ -27,8 +27,8 @@ import static com.mongodb.client.model.Filters.*;
  */
 public class MongoDBImpl implements DBInterface {
 
-    //public static final String TWEET_STORE = "tweetCollection";
-    public static final String TWEET_STORE = "tweetBotSpotterCollection";
+    public static final String TWEET_STORE = "tweetCollection";
+
 
     private MongoClient mongoClient;
     private MongoDatabase database;

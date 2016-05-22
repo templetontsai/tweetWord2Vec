@@ -5,23 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1b9e5e-46c2-4ab5-8d48-27b88add0b0c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/templeton.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainTabPanel.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetSpotterUtils.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/TweetWord2VecUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainFrameGUI.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainFrameGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainPanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/main/TweetWord2Vec.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/main/TweetWord2Vec.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/CredentialsManager.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/CredentialsManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/DBInterface.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/DBInterface.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/Properties.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/Properties.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TwitterAuth.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TwitterAuth.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/Word2VecParameters.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/Word2VecParameters.java" />
     </list>
     <ignored path="WordVerctorTweetSpotter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,10 +47,11 @@
       <file leaf-file-name="TweetWord2VecUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/TweetWord2VecUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="118" column="25" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="25" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Properties.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Properties.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/Properties.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
+            <state relative-caret-position="432">
+              <caret line="38" column="65" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -96,11 +81,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MongoDBImpl.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MongoDBImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="41" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="41" />
+            <state relative-caret-position="-738">
+              <caret line="27" column="24" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="24" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -111,8 +96,8 @@
       <file leaf-file-name="DBInterface.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/DBInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="13" selection-end-column="3" />
+            <state relative-caret-position="54">
+              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -191,10 +176,10 @@
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetWord2VecUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TwitterAuth.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/Properties.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/DBInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/CredentialsManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/TweetWord2VecUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java" />
       </list>
     </option>
   </component>
@@ -866,6 +851,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -911,6 +897,7 @@
           <caret line="94" column="58" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -956,6 +943,7 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1156,10 +1144,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/DBInterface.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TwitterAuth.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="13" selection-end-column="3" />
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/Properties.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="38" column="65" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
@@ -1176,40 +1174,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="41" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/TweetWord2VecUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="118" column="25" selection-start-line="118" selection-start-column="15" selection-end-line="118" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/DBInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TwitterAuth.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="12" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/Properties.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="35" column="67" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
+        <state relative-caret-position="-738">
+          <caret line="27" column="24" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="24" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
