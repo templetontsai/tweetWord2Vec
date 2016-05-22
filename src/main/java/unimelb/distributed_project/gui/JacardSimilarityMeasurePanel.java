@@ -1,8 +1,8 @@
-
 package unimelb.distributed_project.gui;
 
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
+import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
 import unimelb.distributed_project.utils.mongodb.TweetSpotterUtils;
 
@@ -16,8 +16,8 @@ import java.util.List;
 /**
  * @author Templeton Tsai
  */
-public class JacardSimilarityMeasure extends JPanel {
-    final static Logger log = Logger.getLogger(JacardSimilarityMeasure.class);
+public class JacardSimilarityMeasurePanel extends JPanel {
+    final static Logger log = Logger.getLogger(JacardSimilarityMeasurePanel.class);
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Templeton Tsai
     private JLabel label1;
@@ -31,16 +31,21 @@ public class JacardSimilarityMeasure extends JPanel {
     private JTextField topNearestWordtextField;
     private JScrollPane scrollPane2;
     private JList wordList;
+    private JLabel label5;
+    private JTextField simOutputPathTextField;
+    private JButton browseButton3;
     private JButton loadListButton;
     private JButton measureButton;
+    private JButton visualizedButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
     private JFrame mainFrame;
     private String word2vecFilePath1;
     private String word2vecFilePath2;
     private String listOfwordsFilePath;
+    private String jcardSimFilePath;
     private int topNearestWords = 10;
 
-    public JacardSimilarityMeasure(JFrame mainFrame) {
+    public JacardSimilarityMeasurePanel(JFrame mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
     }
@@ -57,7 +62,7 @@ public class JacardSimilarityMeasure extends JPanel {
             word2vecFilePath1TextField.setText(word2vecFilePath1);
 
             log.debug("Selected file: " + word2vecFilePath1);
-        } else if(!word2vecFilePath1TextField.getText().equals("")) {
+        } else if (!word2vecFilePath1TextField.getText().equals("")) {
             log.debug("Selected file: " + word2vecFilePath2);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
@@ -80,7 +85,7 @@ public class JacardSimilarityMeasure extends JPanel {
             word2vecFilePath2TextField.setText(word2vecFilePath2);
 
             log.debug("Selected file: " + word2vecFilePath2);
-        } else if(!word2vecFilePath2TextField.getText().equals("")) {
+        } else if (!word2vecFilePath2TextField.getText().equals("")) {
             log.debug("Selected file: " + word2vecFilePath2);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
@@ -97,7 +102,8 @@ public class JacardSimilarityMeasure extends JPanel {
                 ("") && word2vecFilePath2 != null && wordList != null) {
             word2vecFilePath1 = word2vecFilePath1TextField.getText();
             word2vecFilePath2 = word2vecFilePath2TextField.getText();
-            if(!topNearestWordtextField.getText().equals(""))
+            jcardSimFilePath = simOutputPathTextField.getText();
+            if (!topNearestWordtextField.getText().equals(""))
                 topNearestWords = new Integer(topNearestWordtextField.getText());
             Thread measureThread = new Thread(new Runnable() {
                 @Override
@@ -105,7 +111,9 @@ public class JacardSimilarityMeasure extends JPanel {
                     ListModel model = wordList.getModel();
 
                     try {
-                        BufferedWriter bw = new BufferedWriter(new FileWriter("./jcard_sim.txt"));
+                        if (jcardSimFilePath.equals(""))
+                            jcardSimFilePath = "./jcard_sim.txt";
+                        BufferedWriter bw = new BufferedWriter(new FileWriter(jcardSimFilePath));
                         for (int i = 0; i < model.getSize(); i++) {
                             StringBuilder output = new StringBuilder();
                             output.append(model.getElementAt(i) + ",");
@@ -122,7 +130,7 @@ public class JacardSimilarityMeasure extends JPanel {
                         }
 
                         bw.close();
-                    } catch(IOException ioe) {
+                    } catch (IOException ioe) {
                         log.debug("create buffer writer fails");
 
                     }
@@ -133,6 +141,12 @@ public class JacardSimilarityMeasure extends JPanel {
                     browseButton2.setEnabled(true);
                     loadListButton.setEnabled(true);
                     measureButton.setEnabled(true);
+                    browseButton3.setEnabled(true);
+                    visualizedButton.setEnabled(true);
+                    JOptionPane.showMessageDialog(mainFrame,
+                            "JacardSimilarity Measurement is done",
+                            "JacardSimilarity Measurement",
+                            JOptionPane.INFORMATION_MESSAGE);
                 }
             });
             measureThread.start();
@@ -140,6 +154,8 @@ public class JacardSimilarityMeasure extends JPanel {
             browseButton2.setEnabled(false);
             loadListButton.setEnabled(false);
             measureButton.setEnabled(false);
+            browseButton3.setEnabled(false);
+            visualizedButton.setEnabled(false);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
                     "Please suggest files and load wordOfList",
@@ -201,6 +217,56 @@ public class JacardSimilarityMeasure extends JPanel {
 
     }
 
+    private void visualizedButtonActionPerformed(ActionEvent e) {
+
+        if (jcardSimFilePath != null && !jcardSimFilePath.equals("")) {
+            File f = new File(jcardSimFilePath);
+            //Visualize it with Python
+            try {
+                if(f.exists()) {
+                    String ployPythonFile = f.getParent();
+
+                    ProcessBuilder processBuilder = new ProcessBuilder(
+                            "/usr/bin/python", ployPythonFile + "/plot.py", jcardSimFilePath);
+                    processBuilder.redirectErrorStream(true);
+                    Process process = processBuilder.start();
+                    //TODO add error handling when the plot.py is not in place
+                    IOUtils.copy(process.getInputStream(), System.out);
+
+
+                } else {
+                    log.debug("similarity file doesn't exist");
+                }
+
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
+    private void browseButton3ActionPerformed(ActionEvent e) {
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new File("/home"));
+        int result = jFileChooser.showOpenDialog(new JFrame());
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jFileChooser.getSelectedFile();
+            jcardSimFilePath = selectedFile.getPath();
+            simOutputPathTextField.setText("");
+            simOutputPathTextField.setText(jcardSimFilePath);
+
+            log.debug("Selected file: " + jcardSimFilePath);
+        } else if (!simOutputPathTextField.getText().equals("")) {
+            log.debug("Selected file: " + jcardSimFilePath);
+        } else {
+            JOptionPane.showMessageDialog(this.mainFrame,
+                    "Please suggest where the similarity output file path is not selected",
+                    "file is not selected",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Templeton Tsai
@@ -215,14 +281,18 @@ public class JacardSimilarityMeasure extends JPanel {
         topNearestWordtextField = new JTextField();
         scrollPane2 = new JScrollPane();
         wordList = new JList();
+        label5 = new JLabel();
+        simOutputPathTextField = new JTextField();
+        browseButton3 = new JButton();
         loadListButton = new JButton();
         measureButton = new JButton();
+        visualizedButton = new JButton();
 
         //======== this ========
 
 
         setLayout(new FormLayout(
-            "11*(default, $lcgap), default",
+            "6*(default, $lcgap), 63dlu, 5*($lcgap, default)",
             "6*(default, $lgap), default"));
 
         //---- label1 ----
@@ -239,7 +309,7 @@ public class JacardSimilarityMeasure extends JPanel {
 
             }
         });
-        add(browseButton1, CC.xy(23, 3));
+        add(browseButton1, CC.xy(19, 3));
 
         //---- label2 ----
         label2.setText("word2vec File 2:");
@@ -254,14 +324,14 @@ public class JacardSimilarityMeasure extends JPanel {
                 browseButton2ActionPerformed(e);
             }
         });
-        add(browseButton2, CC.xy(23, 5));
+        add(browseButton2, CC.xy(19, 5));
 
         //---- label3 ----
         label3.setText("List of words");
         add(label3, CC.xywh(1, 7, 5, 1));
 
         //---- label4 ----
-        label4.setText("Top words");
+        label4.setText("Nearest words:");
         add(label4, CC.xy(11, 7));
         add(topNearestWordtextField, CC.xywh(13, 7, 5, 1));
 
@@ -270,6 +340,21 @@ public class JacardSimilarityMeasure extends JPanel {
             scrollPane2.setViewportView(wordList);
         }
         add(scrollPane2, CC.xywh(1, 9, 9, 1));
+
+        //---- label5 ----
+        label5.setText("Output file:");
+        add(label5, CC.xy(11, 9));
+        add(simOutputPathTextField, CC.xywh(13, 9, 5, 1));
+
+        //---- browseButton3 ----
+        browseButton3.setText("Browse");
+        browseButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                browseButton3ActionPerformed(e);
+            }
+        });
+        add(browseButton3, CC.xy(19, 9));
 
         //---- loadListButton ----
         loadListButton.setText("Load ");
@@ -290,7 +375,17 @@ public class JacardSimilarityMeasure extends JPanel {
 
             }
         });
-        add(measureButton, CC.xy(17, 11));
+        add(measureButton, CC.xy(11, 11));
+
+        //---- visualizedButton ----
+        visualizedButton.setText("Visualized");
+        visualizedButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                visualizedButtonActionPerformed(e);
+            }
+        });
+        add(visualizedButton, CC.xywh(13, 11, 2, 1));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
 

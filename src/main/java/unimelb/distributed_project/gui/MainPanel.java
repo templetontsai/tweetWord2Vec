@@ -15,7 +15,7 @@ public final class MainPanel extends JPanel {
     private TrainWord2VecPanel trainPanel = null;
     private TweetDataMongoDBToFilePanel tweetDataMongoDBToFilePanel = null;
     private TweetRandomizedLinePanel tweetRandomizedLinePanel = null;
-    private JacardSimilarityMeasure jacardSimilarityMeasure = null;
+    private JacardSimilarityMeasurePanel jacardSimilarityMeasurePanel = null;
     private JFrame mainFrame = null;
 
     public MainPanel(JFrame mainFrame) {
@@ -29,13 +29,13 @@ public final class MainPanel extends JPanel {
         trainPanel = new TrainWord2VecPanel(this.mainFrame);
         tweetDataMongoDBToFilePanel = new TweetDataMongoDBToFilePanel(this.mainFrame);
         tweetRandomizedLinePanel = new TweetRandomizedLinePanel(this.mainFrame);
-        jacardSimilarityMeasure = new JacardSimilarityMeasure(this.mainFrame);
+        jacardSimilarityMeasurePanel = new JacardSimilarityMeasurePanel(this.mainFrame);
         tabbedPane = new JTabbedPane();
 
         tabbedPane.addTab("TrainWord2Vec", trainPanel);
         tabbedPane.addTab("TweetDBToFile", tweetDataMongoDBToFilePanel);
         tabbedPane.addTab("TweetReshuffle", tweetRandomizedLinePanel);
-        tabbedPane.addTab("Similarity", jacardSimilarityMeasure);
+        tabbedPane.addTab("Similarity", jacardSimilarityMeasurePanel);
         this.add(tabbedPane);
 
 

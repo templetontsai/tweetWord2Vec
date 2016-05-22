@@ -16,16 +16,16 @@ import java.io.File;
  * @author Templeton Tsai
  */
 public class TweetRandomizedLinePanel extends JPanel {
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Templeton Tsai
-    final static Logger log = Logger.getLogger(TweetRandomizedLinePanel.class);
+
     private JLabel label1;
     private JTextField srcTweetFileField;
     private JButton browseSrc;
     private JLabel label2;
     private JTextField dstTweetFileField;
-    private JButton browseDsr;
+    private JButton browseDst;
     private JButton reshuffleLine;
+
+    final static Logger log = Logger.getLogger(TweetRandomizedLinePanel.class);
     private JFrame mainFrame = null;
     private String tweetDataSrcFilePath = null;
     private String tweetDataDstFilePath = null;
@@ -47,7 +47,7 @@ public class TweetRandomizedLinePanel extends JPanel {
             srcTweetFileField.setText(tweetDataSrcFilePath);
 
             log.debug("Selected file: " + tweetDataSrcFilePath);
-        } else if(!srcTweetFileField.equals("")) {
+        } else if (!srcTweetFileField.equals("")) {
             log.debug("Selected file: " + tweetDataSrcFilePath);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
@@ -70,7 +70,7 @@ public class TweetRandomizedLinePanel extends JPanel {
             dstTweetFileField.setText(tweetDataDstFilePath);
 
             log.debug("Selected file: " + tweetDataDstFilePath);
-        } else if(!dstTweetFileField.equals("")) {
+        } else if (!dstTweetFileField.equals("")) {
             log.debug("Selected file: " + tweetDataDstFilePath);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
@@ -97,7 +97,7 @@ public class TweetRandomizedLinePanel extends JPanel {
                                     JOptionPane.INFORMATION_MESSAGE);
                             reshuffleLine.setEnabled(true);
                             browseSrc.setEnabled(true);
-                            browseDsr.setEnabled(true);
+                            browseDst.setEnabled(true);
                         }
 
                     } catch (Exception e1) {
@@ -109,7 +109,7 @@ public class TweetRandomizedLinePanel extends JPanel {
             tweetFileReshuffle.start();
             reshuffleLine.setEnabled(false);
             browseSrc.setEnabled(false);
-            browseDsr.setEnabled(false);
+            browseDst.setEnabled(false);
 
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
@@ -122,6 +122,7 @@ public class TweetRandomizedLinePanel extends JPanel {
 
     }
 
+
     private void initComponents() {
 
         label1 = new JLabel();
@@ -129,19 +130,20 @@ public class TweetRandomizedLinePanel extends JPanel {
         browseSrc = new JButton();
         label2 = new JLabel();
         dstTweetFileField = new JTextField();
-        browseDsr = new JButton();
+        browseDst = new JButton();
         reshuffleLine = new JButton();
 
 
         setLayout(new FormLayout(
-                "8*(default, $lcgap), default",
+                "3*(default, $lcgap), 76dlu, $lcgap, 71dlu, 5*($lcgap, default)",
                 "4*(default, $lgap), default"));
 
+        //---- label1 ----
         label1.setText("Src Tweet File");
         add(label1, CC.xy(5, 3));
-        add(srcTweetFileField, CC.xywh(7, 3, 10, 1));
+        add(srcTweetFileField, CC.xy(7, 3));
 
-
+        //---- browseSrc ----
         browseSrc.setText("Browse");
         browseSrc.addActionListener(new ActionListener() {
             @Override
@@ -149,24 +151,25 @@ public class TweetRandomizedLinePanel extends JPanel {
                 browseSrcActionPerformed(e);
             }
         });
-        add(browseSrc, CC.xy(17, 3));
+        add(browseSrc, CC.xy(9, 3));
 
-
+        //---- label2 ----
         label2.setText("Dst Tweet File");
         add(label2, CC.xy(5, 5));
-        add(dstTweetFileField, CC.xywh(7, 5, 10, 1));
+        add(dstTweetFileField, CC.xy(7, 5));
 
-
-        browseDsr.setText("Browse");
-        browseDsr.addActionListener(new ActionListener() {
+        //---- browseDst ----
+        browseDst.setText("Browse");
+        browseDst.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 browseDstActionPerformed(e);
             }
         });
-        add(browseDsr, CC.xy(17, 5));
+        add(browseDst, CC.xy(9, 5));
 
-
+        //---- reshuffleLine ----
         reshuffleLine.setText("Reshuffle");
         reshuffleLine.addActionListener(new ActionListener() {
             @Override
@@ -174,8 +177,11 @@ public class TweetRandomizedLinePanel extends JPanel {
                 reshuffleLineActionPerformed(e);
             }
         });
-        add(reshuffleLine, CC.xywh(14, 9, 4, 1));
+        add(reshuffleLine, CC.xy(9, 9));
+
 
     }
+
+
 
 }

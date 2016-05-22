@@ -5,18 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b1b9e5e-46c2-4ab5-8d48-27b88add0b0c" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.jfd" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.jfd" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.jfd" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dependency-reduced-pom.xml" afterPath="$PROJECT_DIR$/dependency-reduced-pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.jfd" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainPanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/main/TweetWord2Vec.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/main/TweetWord2Vec.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetSpotterUtils.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetSpotterUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/Word2VecParameters.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/word2vec/Word2VecParameters.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java" afterPath="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java" />
     </list>
     <ignored path="WordVerctorTweetSpotter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,65 +37,45 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TweetWord2Vec.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/main/TweetWord2Vec.java">
+      <file leaf-file-name="JacardSimilarityMeasurePanel.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="38" column="76" selection-start-line="33" selection-start-column="32" selection-end-line="38" selection-end-column="76" />
-              <folding />
+            <state relative-caret-position="497">
+              <caret line="236" column="24" selection-start-line="236" selection-start-column="24" selection-end-line="236" selection-end-column="24" />
+              <folding>
+                <marker date="1463919016161" expanded="false" signature="612:1448" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1463919016161" expanded="true" signature="11638:15733" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JacardSimilarityMeasure.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-              <folding>
-                <element signature="e#9894#10069#0" expanded="true" />
-                <element signature="e#10068#10069#0" expanded="true" />
-                <element signature="e#10399#10573#0" expanded="true" />
-                <element signature="e#10572#10573#0" expanded="true" />
-                <element signature="e#11166#11341#0" expanded="true" />
-                <element signature="e#11340#11341#0" expanded="true" />
-                <element signature="e#11512#11687#0" expanded="true" />
-                <element signature="e#11686#11687#0" expanded="true" />
-                <marker date="1463840686714" expanded="false" signature="565:1254" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-                <marker date="1463840686714" expanded="true" signature="8768:11817" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-              </folding>
-            </state>
+      <file leaf-file-name="JacardSimilarityMeasurePanel.jfd" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.jfd">
+          <provider selected="true" editor-type-id="JFormDesigner">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="TrainWord2VecPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="3348">
               <caret line="195" column="55" selection-start-line="195" selection-start-column="55" selection-end-line="195" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3877#4023#0" expanded="true" />
-                <element signature="e#4022#4023#0" expanded="true" />
-                <element signature="e#4380#4526#0" expanded="true" />
-                <element signature="e#4525#4526#0" expanded="true" />
-                <element signature="e#4641#4786#0" expanded="true" />
-                <element signature="e#4785#4786#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TweetDataMongoDBToFilePanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TweetDataMongoDBToFilePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+            <state relative-caret-position="198">
+              <caret line="19" column="82" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="82" />
               <folding>
-                <element signature="e#4011#4184#0" expanded="true" />
-                <element signature="e#4183#4184#0" expanded="true" />
-                <element signature="e#4322#4501#0" expanded="true" />
-                <element signature="e#4500#4501#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1163#2054#0" expanded="false" />
+                <element signature="e#2053#2054#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -109,20 +84,18 @@
       <file leaf-file-name="TweetRandomizedLinePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
+            <state relative-caret-position="264">
+              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
               <folding>
-                <element signature="e#5579#5749#0" expanded="true" />
-                <element signature="e#5748#5749#0" expanded="true" />
-                <element signature="e#5997#6167#0" expanded="true" />
-                <element signature="e#6166#6167#0" expanded="true" />
+                <element signature="e#5508#5678#0" expanded="true" />
+                <element signature="e#5677#5678#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JacardSimilarityMeasure.jfd" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.jfd">
+      <file leaf-file-name="TweetRandomizedLinePanel.jfd" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
             <state />
           </provider>
@@ -131,10 +104,15 @@
       <file leaf-file-name="TweetSpotterUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetSpotterUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
+            <state relative-caret-position="1440">
               <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#1635#1991#0" expanded="false" />
+                <element signature="e#1990#1991#0" expanded="false" />
+                <element signature="e#4094#4670#0" expanded="false" />
+                <element signature="e#4669#4670#0" expanded="false" />
+                <element signature="e#5019#5027#0" expanded="false" />
+                <element signature="e#5907#5915#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -143,29 +121,14 @@
       <file leaf-file-name="MongoDBImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
+            <state relative-caret-position="306">
               <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#2418#2426#0" expanded="false" />
+                <element signature="e#8195#8196#0" expanded="false" />
+                <element signature="e#8230#8231#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -212,7 +175,6 @@
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFile.jfd" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFile.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.jfd" />
-        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.jfd" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/MainPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetSpotterUtils.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
@@ -221,9 +183,12 @@
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.jfd" />
         <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.jfd" />
+        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.jfd" />
+        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.java" />
       </list>
     </option>
   </component>
@@ -241,9 +206,9 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="65" />
-    <option name="y" value="24" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
-    <option name="height" value="1056" />
+    <option name="height" value="1084" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -270,8 +235,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -444,7 +407,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -454,6 +419,11 @@
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dl4j-0.4-examples" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.TweetWord2Vec_gui">
     <configuration default="false" name="TweetWord2Vec_command" type="Application" factoryName="Application" temporary="true">
@@ -775,7 +745,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -786,11 +756,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33645833" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15367606" sideWeight="0.4" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22001106" sideWeight="0.4" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -827,28 +797,17 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/main/TweetWord2Vec.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetSpotterUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1635#1991#0" expanded="false" />
+            <element signature="e#1990#1991#0" expanded="false" />
+            <element signature="e#4094#4670#0" expanded="false" />
+            <element signature="e#4669#4670#0" expanded="false" />
+            <element signature="e#5019#5027#0" expanded="false" />
+            <element signature="e#5907#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -864,7 +823,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3078">
           <caret line="185" column="33" selection-start-line="185" selection-start-column="11" selection-end-line="185" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2418#2426#0" expanded="false" />
+            <element signature="e#8195#8196#0" expanded="false" />
+            <element signature="e#8230#8231#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -880,7 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -889,7 +852,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1635#1991#0" expanded="false" />
+            <element signature="e#1990#1991#0" expanded="false" />
+            <element signature="e#4094#4670#0" expanded="false" />
+            <element signature="e#4669#4670#0" expanded="false" />
+            <element signature="e#5019#5027#0" expanded="false" />
+            <element signature="e#5907#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -905,7 +873,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="185" column="33" selection-start-line="185" selection-start-column="11" selection-end-line="185" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2418#2426#0" expanded="false" />
+            <element signature="e#8195#8196#0" expanded="false" />
+            <element signature="e#8230#8231#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -921,7 +894,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -930,7 +902,12 @@
         <state relative-caret-position="0">
           <caret line="94" column="58" selection-start-line="94" selection-start-column="58" selection-end-line="94" selection-end-column="58" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1635#1991#0" expanded="false" />
+            <element signature="e#1990#1991#0" expanded="false" />
+            <element signature="e#4094#4670#0" expanded="false" />
+            <element signature="e#4669#4670#0" expanded="false" />
+            <element signature="e#5019#5027#0" expanded="false" />
+            <element signature="e#5907#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -946,7 +923,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="185" column="33" selection-start-line="185" selection-start-column="11" selection-end-line="185" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2418#2426#0" expanded="false" />
+            <element signature="e#8195#8196#0" expanded="false" />
+            <element signature="e#8230#8231#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -962,7 +944,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -971,7 +952,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1635#1991#0" expanded="false" />
+            <element signature="e#1990#1991#0" expanded="false" />
+            <element signature="e#4094#4670#0" expanded="false" />
+            <element signature="e#4669#4670#0" expanded="false" />
+            <element signature="e#5019#5027#0" expanded="false" />
+            <element signature="e#5907#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -987,7 +973,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="185" column="33" selection-start-line="185" selection-start-column="11" selection-end-line="185" selection-end-column="33" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2418#2426#0" expanded="false" />
+            <element signature="e#8195#8196#0" expanded="false" />
+            <element signature="e#8230#8231#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1003,7 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1093,16 +1083,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/main/TweetWord2Vec.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="38" column="76" selection-start-line="33" selection-start-column="32" selection-end-line="38" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1110,7 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1130,86 +1113,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="195" column="55" selection-start-line="195" selection-start-column="55" selection-end-line="195" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3877#4023#0" expanded="true" />
-            <element signature="e#4022#4023#0" expanded="true" />
-            <element signature="e#4380#4526#0" expanded="true" />
-            <element signature="e#4525#4526#0" expanded="true" />
-            <element signature="e#4641#4786#0" expanded="true" />
-            <element signature="e#4785#4786#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding>
-            <element signature="e#5579#5749#0" expanded="true" />
-            <element signature="e#5748#5749#0" expanded="true" />
-            <element signature="e#5997#6167#0" expanded="true" />
-            <element signature="e#6166#6167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasure.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="222" column="0" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
-          <folding>
-            <element signature="e#9894#10069#0" expanded="true" />
-            <element signature="e#10068#10069#0" expanded="true" />
-            <element signature="e#10399#10573#0" expanded="true" />
-            <element signature="e#10572#10573#0" expanded="true" />
-            <element signature="e#11166#11341#0" expanded="true" />
-            <element signature="e#11340#11341#0" expanded="true" />
-            <element signature="e#11512#11687#0" expanded="true" />
-            <element signature="e#11686#11687#0" expanded="true" />
-            <marker date="1463840686714" expanded="false" signature="565:1254" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-            <marker date="1463840686714" expanded="true" signature="8768:11817" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/TweetSpotterUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
+        <state relative-caret-position="1440">
           <caret line="104" column="39" selection-start-line="104" selection-start-column="39" selection-end-line="104" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1635#1991#0" expanded="false" />
+            <element signature="e#1990#1991#0" expanded="false" />
+            <element signature="e#4094#4670#0" expanded="false" />
+            <element signature="e#4669#4670#0" expanded="false" />
+            <element signature="e#5019#5027#0" expanded="false" />
+            <element signature="e#5907#5915#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/utils/mongodb/MongoDBImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
+        <state relative-caret-position="306">
           <caret line="31" column="11" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#2418#2426#0" expanded="false" />
+            <element signature="e#8195#8196#0" expanded="false" />
+            <element signature="e#8230#8231#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TrainWord2VecPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3348">
+          <caret line="195" column="55" selection-start-line="195" selection-start-column="55" selection-end-line="195" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.jfd" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLlinePanel.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetDataMongoDBToFilePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+        <state relative-caret-position="198">
+          <caret line="19" column="82" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="82" />
           <folding>
-            <element signature="e#4011#4184#0" expanded="true" />
-            <element signature="e#4183#4184#0" expanded="true" />
-            <element signature="e#4322#4501#0" expanded="true" />
-            <element signature="e#4500#4501#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1163#2054#0" expanded="false" />
+            <element signature="e#2053#2054#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/TweetRandomizedLinePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
+          <folding>
+            <element signature="e#5508#5678#0" expanded="true" />
+            <element signature="e#5677#5678#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/unimelb/distributed_project/gui/JacardSimilarityMeasurePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="236" column="24" selection-start-line="236" selection-start-column="24" selection-end-line="236" selection-end-column="24" />
+          <folding>
+            <marker date="1463919016161" expanded="false" signature="612:1448" ph="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1463919016161" expanded="true" signature="11638:15733" ph="// JFormDesigner - Component initialization - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
