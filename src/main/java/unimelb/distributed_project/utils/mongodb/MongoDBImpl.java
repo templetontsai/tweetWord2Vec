@@ -1,3 +1,7 @@
+/**
+ * Distributed Project, TweetWord2Vec
+ * Ting-Ying(Templeton) Tsai, Student ID: 723957
+ */
 package unimelb.distributed_project.utils.mongodb;
 
 import com.mongodb.MongoClient;
@@ -17,7 +21,9 @@ import java.util.StringTokenizer;
 import static com.mongodb.client.model.Filters.*;
 
 /**
- * Created by templeton on 2016/4/20.
+ * This class is ported from Sharon project to perform mongodb access
+ *
+ * @author Templeton Tsai
  */
 public class MongoDBImpl implements DBInterface {
 

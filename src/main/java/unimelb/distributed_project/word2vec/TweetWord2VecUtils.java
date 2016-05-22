@@ -1,4 +1,8 @@
-package unimelb.distributed_project.utils.mongodb;
+/**
+ * Distributed Project, TweetWord2Vec
+ * Ting-Ying(Templeton) Tsai, Student ID: 723957
+ */
+package unimelb.distributed_project.word2vec;
 
 import com.mongodb.Block;
 import com.mongodb.client.FindIterable;
@@ -11,25 +15,40 @@ import org.deeplearning4j.models.word2vec.Word2Vec;
 import org.deeplearning4j.text.sentenceiterator.LineSentenceIterator;
 import org.deeplearning4j.text.sentenceiterator.SentenceIterator;
 import org.deeplearning4j.text.sentenceiterator.SentencePreProcessor;
-import org.deeplearning4j.text.tokenization.tokenizer.preprocessor.CommonPreprocessor;
-import org.deeplearning4j.text.tokenization.tokenizer.preprocessor.EndingPreProcessor;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.DefaultTokenizerFactory;
 import org.deeplearning4j.text.tokenization.tokenizerfactory.TokenizerFactory;
 import unimelb.distributed_project.main.TweetWord2Vec;
-import unimelb.distributed_project.word2vec.Word2VecParameters;
+import unimelb.distributed_project.utils.mongodb.DBInterface;
+import unimelb.distributed_project.utils.mongodb.MongoDBImpl;
+
 
 import java.io.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
+ * This class the untility function for all the features perform in this application and
+ * incorporated with word2vec library
+ *
  * @author Templeton Tsai
  */
-public class TweetSpotterUtils {
+public class TweetWord2VecUtils {
 
     final static Logger log = Logger.getLogger(TweetWord2Vec.class);
 
 
-
+    /**
+     * The main funtion to run word2vec in word2vec library
+     *
+     * @param fileName           the origin file for training
+     * @param saveFile           where to save after the words are vectorized
+     * @param word2VecParameters Word2VecParameters object to specify the training parameters for
+     *                           word2vec library
+     * @return boolean to indicate is running done
+     * @throws Exception the exceptions while running word2vec
+     */
     public static boolean trainWordToVector(String fileName, String saveFile, Word2VecParameters
             word2VecParameters) throws
             Exception {
@@ -55,19 +74,9 @@ public class TweetSpotterUtils {
 
         });
 
-        // Split on white spaces in the line to get words
-        TokenizerFactory t = new DefaultTokenizerFactory();
-        final EndingPreProcessor preProcessor = new EndingPreProcessor();
-        t.setTokenPreProcessor(new CommonPreprocessor());
-        /*t.setTokenPreProcessor(new TokenPreProcess() {
 
-            public String preProcess(String token) {
-                token = token.toLowerCase();
-                String base = preProcessor.preProcess(token);
-                //Get Rid of any url link in the text
-                return base;
-            }
-        });*/
+        TokenizerFactory t = new DefaultTokenizerFactory();
+
 
         log.info("Building model....");
         Word2Vec vec = new Word2Vec.Builder()
@@ -79,7 +88,7 @@ public class TweetSpotterUtils {
                 .seed(word2VecParameters.getSeed())
                 .windowSize(word2VecParameters.getWindowSize())
                 .iterate(iter)
-                .tokenizerFactory(t)
+                //   .tokenizerFactory(t)
                 .build();
 
         log.info("Fitting Word2Vec model....");
@@ -95,12 +104,15 @@ public class TweetSpotterUtils {
 
         return isDone;
 
-
-
-        //UiServer server = UiServer.getInstance();
-        //log.debug("Started on port " + server.getPort());
     }
 
+    /**
+     * This function performs reading from MongoDB collection to a text file
+     *
+     * @param fileName the destination of where to save the transformed file
+     * @return boolean to indicate is running done
+     * @throws Exception the exceptions while transforming db data to text file
+     */
     public static boolean saveDBTweetToFile(String fileName) throws Exception {
         DBInterface dbConn = new MongoDBImpl();
 
@@ -120,11 +132,9 @@ public class TweetSpotterUtils {
                 text = text.replaceAll("(\\r|\\n)", " ");
 
 
-
                 try {
                     bw.write(text);
                     bw.newLine();
-
 
 
                 } catch (FileNotFoundException e) {
@@ -148,6 +158,14 @@ public class TweetSpotterUtils {
 
     }
 
+    /**
+     * This function performs the reshuffling lines in the given text file
+     *
+     * @param srcFileName source file
+     * @param dstFileName reshuffled file
+     * @return boolean to indicate is running done
+     * @throws Exception the exceptions while transforming db data to text file
+     */
     public static boolean reshuffleLines(String srcFileName, String dstFileName) throws Exception {
 
         boolean isDone;
@@ -179,6 +197,14 @@ public class TweetSpotterUtils {
 
     }
 
+    /**
+     * This function finds out the n-nearest distance with the given term.
+     *
+     * @param fileName   word2vec file
+     * @param term       word term
+     * @param nearestNum indicates n-nearest term
+     * @return boolean to indicate is running done
+     */
     public static String runModelNearest(String fileName, String term, int nearestNum) {
         StringBuilder sb = new StringBuilder();
         try {
@@ -204,6 +230,14 @@ public class TweetSpotterUtils {
         return sb.toString();
     }
 
+    /**
+     * This is the function to perform Jacard Similarity. It is called to a third party library.
+     *
+     * @param a the string to compare
+     * @param b the sring to compare
+     * @return the similarity score in double
+     * @see <a href="https://github.com/tdebatty/java-string-similarity</a>
+     */
     public static double jcardSim(String a, String b) {
         Jaccard j = new Jaccard();
 

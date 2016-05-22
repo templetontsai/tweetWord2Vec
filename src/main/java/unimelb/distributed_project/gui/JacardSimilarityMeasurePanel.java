@@ -1,10 +1,15 @@
+/**
+ * Distributed Project, TweetWord2Vec
+ * Ting-Ying(Templeton) Tsai, Student ID: 723957
+ */
+
 package unimelb.distributed_project.gui;
 
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
 import org.apache.commons.io.IOUtils;
 import org.apache.log4j.Logger;
-import unimelb.distributed_project.utils.mongodb.TweetSpotterUtils;
+import unimelb.distributed_project.word2vec.TweetWord2VecUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -14,259 +19,53 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * This class is the panel for running Jacard Similarity Measurement. It has an python
+ * visualization functionality built-in.
+ *
  * @author Templeton Tsai
  */
+
 public class JacardSimilarityMeasurePanel extends JPanel {
     final static Logger log = Logger.getLogger(JacardSimilarityMeasurePanel.class);
-    // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Templeton Tsai
-    private JLabel label1;
-    private JTextField word2vecFilePath1TextField;
-    private JButton browseButton1;
-    private JLabel label2;
-    private JTextField word2vecFilePath2TextField;
-    private JButton browseButton2;
-    private JLabel label3;
-    private JLabel label4;
-    private JTextField topNearestWordtextField;
-    private JScrollPane scrollPane2;
-    private JList wordList;
-    private JLabel label5;
-    private JTextField simOutputPathTextField;
-    private JButton browseButton3;
-    private JButton loadListButton;
-    private JButton measureButton;
-    private JButton visualizedButton;
-    // JFormDesigner - End of variables declaration  //GEN-END:variables
-    private JFrame mainFrame;
-    private String word2vecFilePath1;
-    private String word2vecFilePath2;
-    private String listOfwordsFilePath;
-    private String jcardSimFilePath;
+    private JLabel label1 = null;
+    private JTextField word2vecFilePath1TextField = null;
+    private JButton browseButton1 = null;
+    private JLabel label2 = null;
+    private JTextField word2vecFilePath2TextField = null;
+    private JButton browseButton2 = null;
+    private JLabel label3 = null;
+    private JLabel label4 = null;
+    private JTextField topNearestWordtextField = null;
+    private JScrollPane scrollPane2 = null;
+    private JList wordList = null;
+    private JLabel label5 = null;
+    private JTextField simOutputPathTextField = null;
+    private JButton browseButton3 = null;
+    private JButton loadListButton = null;
+    private JButton measureButton = null;
+    private JButton visualizedButton = null;
+    private JFrame mainFrame = null;
+    private String word2vecFilePath1 = null;
+    private String word2vecFilePath2 = null;
+    private String listOfwordsFilePath = null;
+    private String jcardSimFilePath = null;
+    //default value if the field is not given any value
     private int topNearestWords = 10;
 
+    /**
+     * The constructor takes the parameter of JFrame to perform various of UI updates and
+     * operations.
+     *
+     * @param mainFrame JFrame object
+     */
     public JacardSimilarityMeasurePanel(JFrame mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
     }
 
-    private void browseButton1ActionPerformed(ActionEvent e) {
-        JFileChooser jFileChooser = new JFileChooser();
-        jFileChooser.setCurrentDirectory(new File("/home"));
-        int result = jFileChooser.showOpenDialog(new JFrame());
-
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = jFileChooser.getSelectedFile();
-            word2vecFilePath1 = selectedFile.getPath();
-            word2vecFilePath1TextField.setText("");
-            word2vecFilePath1TextField.setText(word2vecFilePath1);
-
-            log.debug("Selected file: " + word2vecFilePath1);
-        } else if (!word2vecFilePath1TextField.getText().equals("")) {
-            log.debug("Selected file: " + word2vecFilePath2);
-        } else {
-            JOptionPane.showMessageDialog(this.mainFrame,
-                    "Please suggest where the word2vec text file is",
-                    "file is not selected",
-                    JOptionPane.ERROR_MESSAGE);
-
-        }
-    }
-
-    private void browseButton2ActionPerformed(ActionEvent e) {
-        JFileChooser jFileChooser = new JFileChooser();
-        jFileChooser.setCurrentDirectory(new File("/home"));
-        int result = jFileChooser.showOpenDialog(new JFrame());
-
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = jFileChooser.getSelectedFile();
-            word2vecFilePath2 = selectedFile.getPath();
-            word2vecFilePath2TextField.setText("");
-            word2vecFilePath2TextField.setText(word2vecFilePath2);
-
-            log.debug("Selected file: " + word2vecFilePath2);
-        } else if (!word2vecFilePath2TextField.getText().equals("")) {
-            log.debug("Selected file: " + word2vecFilePath2);
-        } else {
-            JOptionPane.showMessageDialog(this.mainFrame,
-                    "Please suggest where the word2vec text file is",
-                    "file is not selected",
-                    JOptionPane.ERROR_MESSAGE);
-
-        }
-    }
-
-    private void measureButtonActionPerformed(ActionEvent e) {
-
-        if (!word2vecFilePath1.equals("") && word2vecFilePath1 != null && !word2vecFilePath2.equals
-                ("") && word2vecFilePath2 != null && wordList != null) {
-            word2vecFilePath1 = word2vecFilePath1TextField.getText();
-            word2vecFilePath2 = word2vecFilePath2TextField.getText();
-            jcardSimFilePath = simOutputPathTextField.getText();
-            if (!topNearestWordtextField.getText().equals(""))
-                topNearestWords = new Integer(topNearestWordtextField.getText());
-            Thread measureThread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    ListModel model = wordList.getModel();
-
-                    try {
-                        if (jcardSimFilePath.equals(""))
-                            jcardSimFilePath = "./jcard_sim.txt";
-                        BufferedWriter bw = new BufferedWriter(new FileWriter(jcardSimFilePath));
-                        for (int i = 0; i < model.getSize(); i++) {
-                            StringBuilder output = new StringBuilder();
-                            output.append(model.getElementAt(i) + ",");
-                            log.debug(model.getElementAt(i));
-                            double jcardSimScore = TweetSpotterUtils.jcardSim(TweetSpotterUtils
-                                            .runModelNearest
-                                                    (word2vecFilePath1,
-                                                            (String) model.getElementAt(i), topNearestWords),
-                                    TweetSpotterUtils.runModelNearest(word2vecFilePath2, (String) model.getElementAt(i), topNearestWords));
-                            output.append(jcardSimScore + "\n");
-                            bw.write(output.toString());
-                            log.debug(i + "." + jcardSimScore);
-
-                        }
-
-                        bw.close();
-                    } catch (IOException ioe) {
-                        log.debug("create buffer writer fails");
-
-                    }
-
-
-                    log.debug("done JcardSimilarity Measure, enable all the button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ");
-                    browseButton1.setEnabled(true);
-                    browseButton2.setEnabled(true);
-                    loadListButton.setEnabled(true);
-                    measureButton.setEnabled(true);
-                    browseButton3.setEnabled(true);
-                    visualizedButton.setEnabled(true);
-                    JOptionPane.showMessageDialog(mainFrame,
-                            "JacardSimilarity Measurement is done",
-                            "JacardSimilarity Measurement",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
-            });
-            measureThread.start();
-            browseButton1.setEnabled(false);
-            browseButton2.setEnabled(false);
-            loadListButton.setEnabled(false);
-            measureButton.setEnabled(false);
-            browseButton3.setEnabled(false);
-            visualizedButton.setEnabled(false);
-        } else {
-            JOptionPane.showMessageDialog(this.mainFrame,
-                    "Please suggest files and load wordOfList",
-                    "file is not selected",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-
-    }
-
-    private void loadListButtonActionPerformed(ActionEvent e) {
-
-        JFileChooser jFileChooser = new JFileChooser();
-        jFileChooser.setCurrentDirectory(new File("/home"));
-        int result = jFileChooser.showOpenDialog(new JFrame());
-
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = jFileChooser.getSelectedFile();
-            listOfwordsFilePath = selectedFile.getPath();
-
-            File f = new File(listOfwordsFilePath);
-
-            try {
-                if (f.exists()) {
-                    BufferedReader br = new BufferedReader(new FileReader(listOfwordsFilePath));
-                    String line;
-                    List<String> lines = new ArrayList<String>();
-                    DefaultListModel model = new DefaultListModel();
-                    while ((line = br.readLine()) != null) {
-                        // process the line.
-                        lines.add(line);
-                        model.addElement(line);
-                        log.debug(line);
-
-                    }
-
-                    wordList.setModel(model);
-                    wordList.updateUI();
-
-                } else {
-                    log.debug("Creating file, wordOfList doesn't exist");
-                    //f.createNewFile();
-
-                }
-            } catch (IOException e1) {
-                log.debug("creating/loading file exception");
-                e1.printStackTrace();
-            }
-
-
-            log.debug("Selected file: " + listOfwordsFilePath);
-        } else {
-            JOptionPane.showMessageDialog(this.mainFrame,
-                    "Please suggest where the listOfwords.txt text file is",
-                    "file is not selected",
-                    JOptionPane.ERROR_MESSAGE);
-
-        }
-
-
-    }
-
-    private void visualizedButtonActionPerformed(ActionEvent e) {
-
-        if (jcardSimFilePath != null && !jcardSimFilePath.equals("")) {
-            File f = new File(jcardSimFilePath);
-            //Visualize it with Python
-            try {
-                if(f.exists()) {
-                    String ployPythonFile = f.getParent();
-
-                    ProcessBuilder processBuilder = new ProcessBuilder(
-                            "/usr/bin/python", ployPythonFile + "/plot.py", jcardSimFilePath);
-                    processBuilder.redirectErrorStream(true);
-                    Process process = processBuilder.start();
-                    //TODO add error handling when the plot.py is not in place
-                    IOUtils.copy(process.getInputStream(), System.out);
-
-
-                } else {
-                    log.debug("similarity file doesn't exist");
-                }
-
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
-    }
-
-    private void browseButton3ActionPerformed(ActionEvent e) {
-        JFileChooser jFileChooser = new JFileChooser();
-        jFileChooser.setCurrentDirectory(new File("/home"));
-        int result = jFileChooser.showOpenDialog(new JFrame());
-
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = jFileChooser.getSelectedFile();
-            jcardSimFilePath = selectedFile.getPath();
-            simOutputPathTextField.setText("");
-            simOutputPathTextField.setText(jcardSimFilePath);
-
-            log.debug("Selected file: " + jcardSimFilePath);
-        } else if (!simOutputPathTextField.getText().equals("")) {
-            log.debug("Selected file: " + jcardSimFilePath);
-        } else {
-            JOptionPane.showMessageDialog(this.mainFrame,
-                    "Please suggest where the similarity output file path is not selected",
-                    "file is not selected",
-                    JOptionPane.ERROR_MESSAGE);
-
-        }
-    }
-
+    /**
+     * This function is to initialize the Swing components in this panel.
+     */
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Templeton Tsai
@@ -288,12 +87,10 @@ public class JacardSimilarityMeasurePanel extends JPanel {
         measureButton = new JButton();
         visualizedButton = new JButton();
 
-        //======== this ========
-
 
         setLayout(new FormLayout(
-            "6*(default, $lcgap), 63dlu, 5*($lcgap, default)",
-            "6*(default, $lgap), default"));
+                "6*(default, $lcgap), 63dlu, 5*($lcgap, default)",
+                "6*(default, $lgap), default"));
 
         //---- label1 ----
         label1.setText("word2vec File 1:");
@@ -388,5 +185,257 @@ public class JacardSimilarityMeasurePanel extends JPanel {
         add(visualizedButton, CC.xywh(13, 11, 2, 1));
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
     }
+
+    /**
+     * Browse button action perform function for word2vecFilePath1.
+     *
+     * @param e ActionEvent object
+     */
+    private void browseButton1ActionPerformed(ActionEvent e) {
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new File("/home"));
+        int result = jFileChooser.showOpenDialog(new JFrame());
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jFileChooser.getSelectedFile();
+            word2vecFilePath1 = selectedFile.getPath();
+            word2vecFilePath1TextField.setText("");
+            word2vecFilePath1TextField.setText(word2vecFilePath1);
+
+            log.debug("Selected file: " + word2vecFilePath1);
+        } else if (!word2vecFilePath1TextField.getText().equals("")) {
+            log.debug("Selected file: " + word2vecFilePath2);
+        } else {
+            JOptionPane.showMessageDialog(this.mainFrame,
+                    "Please suggest where the word2vec text file is",
+                    "file is not selected",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    /**
+     * Browse button action perform function for word2vecFilePath2.
+     *
+     * @param e ActionEvent object
+     */
+    private void browseButton2ActionPerformed(ActionEvent e) {
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new File("/home"));
+        int result = jFileChooser.showOpenDialog(new JFrame());
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jFileChooser.getSelectedFile();
+            word2vecFilePath2 = selectedFile.getPath();
+            word2vecFilePath2TextField.setText("");
+            word2vecFilePath2TextField.setText(word2vecFilePath2);
+
+            log.debug("Selected file: " + word2vecFilePath2);
+        } else if (!word2vecFilePath2TextField.getText().equals("")) {
+            log.debug("Selected file: " + word2vecFilePath2);
+        } else {
+            JOptionPane.showMessageDialog(this.mainFrame,
+                    "Please suggest where the word2vec text file is",
+                    "file is not selected",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    /**
+     * Browse button action perform function for jcardSimFilePath.
+     *
+     * @param e ActionEvent object
+     */
+    private void browseButton3ActionPerformed(ActionEvent e) {
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new File("/home"));
+        int result = jFileChooser.showOpenDialog(new JFrame());
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jFileChooser.getSelectedFile();
+            jcardSimFilePath = selectedFile.getPath();
+            simOutputPathTextField.setText("");
+            simOutputPathTextField.setText(jcardSimFilePath);
+
+            log.debug("Selected file: " + jcardSimFilePath);
+        } else if (!simOutputPathTextField.getText().equals("")) {
+            log.debug("Selected file: " + jcardSimFilePath);
+        } else {
+            JOptionPane.showMessageDialog(this.mainFrame,
+                    "Please suggest where the similarity output file path is not selected",
+                    "file is not selected",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    /**
+     * Measure button action perform function for triggering the thread to perform Jacard
+     * Similarity measurement. It takes topNearestWordtextField's text as an input parameter to
+     * execute the distance measurement in word2vec library.
+     *
+     * @param e ActionEvent object
+     */
+    private void measureButtonActionPerformed(ActionEvent e) {
+
+        if (!word2vecFilePath1.equals("") && word2vecFilePath1 != null && !word2vecFilePath2.equals
+                ("") && word2vecFilePath2 != null && wordList != null) {
+            word2vecFilePath1 = word2vecFilePath1TextField.getText();
+            word2vecFilePath2 = word2vecFilePath2TextField.getText();
+            jcardSimFilePath = simOutputPathTextField.getText();
+            if (!topNearestWordtextField.getText().equals(""))
+                topNearestWords = new Integer(topNearestWordtextField.getText());
+            Thread measureThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    ListModel model = wordList.getModel();
+
+                    try {
+                        if (jcardSimFilePath.equals(""))
+                            jcardSimFilePath = "./jcard_sim.txt";
+                        BufferedWriter bw = new BufferedWriter(new FileWriter(jcardSimFilePath));
+                        for (int i = 0; i < model.getSize(); i++) {
+                            StringBuilder output = new StringBuilder();
+                            output.append(model.getElementAt(i) + ",");
+                            log.debug(model.getElementAt(i));
+                            double jcardSimScore = TweetWord2VecUtils.jcardSim(TweetWord2VecUtils
+                                            .runModelNearest
+                                                    (word2vecFilePath1,
+                                                            (String) model.getElementAt(i), topNearestWords),
+                                    TweetWord2VecUtils.runModelNearest(word2vecFilePath2, (String) model.getElementAt(i), topNearestWords));
+                            output.append(jcardSimScore + "\n");
+                            bw.write(output.toString());
+                            log.debug(i + "." + jcardSimScore);
+
+                        }
+
+                        bw.close();
+                    } catch (IOException ioe) {
+                        log.debug("create buffer writer fails");
+
+                    }
+
+
+                    log.debug("done JcardSimilarity Measure, enable all the button                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ");
+                    browseButton1.setEnabled(true);
+                    browseButton2.setEnabled(true);
+                    loadListButton.setEnabled(true);
+                    measureButton.setEnabled(true);
+                    browseButton3.setEnabled(true);
+                    visualizedButton.setEnabled(true);
+                    JOptionPane.showMessageDialog(mainFrame,
+                            "JacardSimilarity Measurement is done",
+                            "JacardSimilarity Measurement",
+                            JOptionPane.INFORMATION_MESSAGE);
+                }
+            });
+            measureThread.start();
+            browseButton1.setEnabled(false);
+            browseButton2.setEnabled(false);
+            loadListButton.setEnabled(false);
+            measureButton.setEnabled(false);
+            browseButton3.setEnabled(false);
+            visualizedButton.setEnabled(false);
+        } else {
+            JOptionPane.showMessageDialog(this.mainFrame,
+                    "Please suggest files and load wordOfList",
+                    "file is not selected",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    /**
+     * Load button's actionPerformed function to load the list of words to find nearest words
+     * against all the words in the list loaded.
+     *
+     * @param e ActionEvent object
+     */
+    private void loadListButtonActionPerformed(ActionEvent e) {
+
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setCurrentDirectory(new File("/home"));
+        int result = jFileChooser.showOpenDialog(new JFrame());
+
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = jFileChooser.getSelectedFile();
+            listOfwordsFilePath = selectedFile.getPath();
+
+            File f = new File(listOfwordsFilePath);
+
+            try {
+                if (f.exists()) {
+                    BufferedReader br = new BufferedReader(new FileReader(listOfwordsFilePath));
+                    String line;
+                    List<String> lines = new ArrayList<String>();
+                    DefaultListModel model = new DefaultListModel();
+                    while ((line = br.readLine()) != null) {
+                        // process the line.
+                        lines.add(line);
+                        model.addElement(line);
+                        log.debug(line);
+
+                    }
+
+                    wordList.setModel(model);
+                    wordList.updateUI();
+
+                } else {
+                    log.debug("Creating file, wordOfList doesn't exist");
+
+                }
+            } catch (IOException e1) {
+                log.debug("creating/loading file exception");
+                e1.printStackTrace();
+            }
+
+
+            log.debug("Selected file: " + listOfwordsFilePath);
+        } else {
+            JOptionPane.showMessageDialog(this.mainFrame,
+                    "Please suggest where the listOfWords.txt text file is",
+                    "file is not selected",
+                    JOptionPane.ERROR_MESSAGE);
+
+        }
+
+
+    }
+
+    /**
+     * This function performs the action of visualization of button. It uses external program,
+     * python, to visualize plot for the result of Jacard similarity measurement between two
+     * training sets.
+     *
+     * @param e ActionEvent object
+     */
+    private void visualizedButtonActionPerformed(ActionEvent e) {
+
+        if (jcardSimFilePath != null && !jcardSimFilePath.equals("")) {
+            File f = new File(jcardSimFilePath);
+            //Visualize it with Python
+            try {
+                if (f.exists()) {
+                    String ployPythonFile = f.getParent();
+
+                    ProcessBuilder processBuilder = new ProcessBuilder(
+                            "/usr/bin/python", ployPythonFile + "/plot.py", jcardSimFilePath);
+                    processBuilder.redirectErrorStream(true);
+                    Process process = processBuilder.start();
+                    //TODO add error handling when the plot.py is not in place
+                    IOUtils.copy(process.getInputStream(), System.out);
+
+
+                } else {
+                    log.debug("similarity file doesn't exist");
+                }
+
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
 
 }

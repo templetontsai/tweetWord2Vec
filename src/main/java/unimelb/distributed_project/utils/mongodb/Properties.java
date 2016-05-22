@@ -1,3 +1,7 @@
+/**
+ * Distributed Project, TweetWord2Vec
+ * Ting-Ying(Templeton) Tsai, Student ID: 723957
+ */
 package unimelb.distributed_project.utils.mongodb;
 
 import org.apache.commons.configuration.ConfigurationException;
@@ -6,7 +10,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * Created by templeton on 2016/4/20.
+ * This class is ported from Sharon project to perform mongodb access
+ *
+ * @author Templeton Tsai
  */
 public class Properties {
 

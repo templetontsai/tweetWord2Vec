@@ -1,9 +1,15 @@
+/**
+ * Distributed Project, TweetWord2Vec
+ * Ting-Ying(Templeton) Tsai, Student ID: 723957
+ */
+
+
 package unimelb.distributed_project.gui;
 
 import com.jgoodies.forms.factories.CC;
 import com.jgoodies.forms.layout.FormLayout;
 import org.apache.log4j.Logger;
-import unimelb.distributed_project.utils.mongodb.TweetSpotterUtils;
+import unimelb.distributed_project.word2vec.TweetWord2VecUtils;
 import unimelb.distributed_project.word2vec.Word2VecParameters;
 
 import javax.swing.*;
@@ -12,6 +18,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 /**
+ * This class is the panel for training word2vec files
+ *
  * @author Templeton Tsai
  */
 public final class TrainWord2VecPanel extends JPanel {
@@ -40,14 +48,23 @@ public final class TrainWord2VecPanel extends JPanel {
     private JButton saveToButton = null;
     private JFrame mainFrame = null;
     private String trainFilePath = null;
+    //default value of word2vec.txt if it is not given by word2vecPathTextField
     private String saveWord2VecPath = "./word2vec.txt";
 
-
+    /**
+     * The constructor takes the parameter of JFrame to perform various of UI updates and
+     * operations.
+     *
+     * @param mainFrame JFrame object
+     */
     public TrainWord2VecPanel(JFrame mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
     }
 
+    /**
+     * This function is to initialize the Swing components in this panel.
+     */
     private void initComponents() {
 
         label1 = new JLabel();
@@ -154,6 +171,11 @@ public final class TrainWord2VecPanel extends JPanel {
 
     }
 
+    /**
+     * Save button action perform function for where the word2vec file should be saved.
+     *
+     * @param e ActionEvent object
+     */
     private void SaveToActionPerformed(ActionEvent e) {
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setCurrentDirectory(new File("/home"));
@@ -166,7 +188,7 @@ public final class TrainWord2VecPanel extends JPanel {
             word2vecPathTextField.setText(saveWord2VecPath);
 
             log.debug("Selected file: " + saveWord2VecPath);
-        } else if(!word2vecPathTextField.getText().equals("")) {
+        } else if (!word2vecPathTextField.getText().equals("")) {
             log.debug("Selected file: " + saveWord2VecPath);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
@@ -178,6 +200,11 @@ public final class TrainWord2VecPanel extends JPanel {
         }
     }
 
+    /**
+     * Browse button action perform function for trainFilePath.
+     *
+     * @param e ActionEvent object
+     */
     private void browseActionPerformed(ActionEvent e) {
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setCurrentDirectory(new File("/home"));
@@ -192,7 +219,7 @@ public final class TrainWord2VecPanel extends JPanel {
 
             log.debug("Selected file: " + trainFilePath);
 
-        } else if(!trainingPathTextField.getText().equals("")) {
+        } else if (!trainingPathTextField.getText().equals("")) {
             log.debug("Selected file: " + trainFilePath);
         } else {
             JOptionPane.showMessageDialog(this.mainFrame,
@@ -202,6 +229,12 @@ public final class TrainWord2VecPanel extends JPanel {
         }
     }
 
+    /**
+     * This function performs the word2vec training by calling the utility function in
+     * TweetWord2Vec. It builds an object Word2VecParameters to pass it to utility function
+     *
+     * @param e ActionEvent object
+     */
     private void trainActionPerformed(ActionEvent e) {
 
         word2VecParameters = new Word2VecParameters.Word2VecParametersBuilder()
@@ -244,7 +277,7 @@ public final class TrainWord2VecPanel extends JPanel {
                     try {
                         saveWord2VecPath = word2vecPathTextField.getText().trim();
                         trainFilePath = trainingPathTextField.getText().trim();
-                        if(TweetSpotterUtils.trainWordToVector(trainFilePath, saveWord2VecPath,
+                        if (TweetWord2VecUtils.trainWordToVector(trainFilePath, saveWord2VecPath,
                                 word2VecParameters)) {
                             JOptionPane.showMessageDialog(mainFrame,
                                     "Training is done",

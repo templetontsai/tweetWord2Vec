@@ -1,12 +1,17 @@
-/*
- * Created by JFormDesigner on Fri May 20 15:37:25 AEST 2016
+/**
+ * Distributed Project, TweetWord2Vec
+ * Ting-Ying(Templeton) Tsai, Student ID: 723957
  */
+
 
 package unimelb.distributed_project.gui;
 
 import javax.swing.*;
 
 /**
+ * This is the main panel to accommodate the tabPaned panel for all the features in this
+ * application
+ *
  * @author Templeton Tsai
  */
 public final class MainPanel extends JPanel {
@@ -18,12 +23,20 @@ public final class MainPanel extends JPanel {
     private JacardSimilarityMeasurePanel jacardSimilarityMeasurePanel = null;
     private JFrame mainFrame = null;
 
+    /**
+     * The constructor takes the parameter of JFrame to pass it for initialization of other panels.
+     *
+     * @param mainFrame JFrame object
+     */
     public MainPanel(JFrame mainFrame) {
         this.mainFrame = mainFrame;
         initComponents();
     }
 
 
+    /**
+     * This function is to initialize the Swing components in this panel.
+     */
     private void initComponents() {
 
         trainPanel = new TrainWord2VecPanel(this.mainFrame);
