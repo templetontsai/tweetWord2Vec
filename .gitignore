@@ -3,3 +3,4 @@ wordVectors.*
 *.out
 lib/
 analysis/
+.idea/
