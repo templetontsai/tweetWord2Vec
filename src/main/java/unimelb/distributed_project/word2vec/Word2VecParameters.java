@@ -13,12 +13,12 @@ package unimelb.distributed_project.word2vec;
 public final class Word2VecParameters {
 
 
-    private int windowSize = -1;
-    private int minWordFeq = -1;
-    private int numIteration = -1;
-    private int layerSize = -1;
-    private int seed = -1;
-    private double learningRate = -1;
+    private int windowSize = 5;
+    private int minWordFeq = 5;
+    private int numIteration = 5;
+    private int layerSize = 100;
+    private int seed = 40;
+    private double learningRate = 0.025;
 
     /**
      * The constructor takes builder object to initialize all variables. All the variables are
