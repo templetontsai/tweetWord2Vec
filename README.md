@@ -56,9 +56,9 @@ In Gui, Word2VecFilepath indications where the output of vectorized file should 
 
 ## TweetDBToFile Tab
 
-In this tab panel, it performs the transformation of data from MongoDB to text file. The tab exists for the purpose of experimients. However, it uses the database configuration exists in Sharon project which might not be applicable in the running enviroment of your. Please read Prerequsite for more info.
+In this tab panel, it performs the transformation of data from MongoDB to text file. The tab exists for the purpose of experimients. However, it uses the database configuration exists in Sharon project which might not be applicable in the running enviroment of yours. Please read Prerequsite for more info.
 
-  - In GUI, it is only required where the output file will be stored since all the other configuration is in the property file of source code.
+  - In GUI, it is required where the output file will be stored and the property file located where the program is run.
 
 ## TweetReshuffle Tab
 
