@@ -97,9 +97,9 @@ germany
 ```
 
   - In GUI, Visualized button is to visualize the result of the similarity by
-  - the output of the similarity file. It will save a png file under the same
-  - folder where the similarity file is suggested. See the example below for
-  - file name indication. To note, it is important for plot.py in where you store your similarity file:
+    the output of the similarity file. It will save a png file under the same
+    folder where the similarity file is suggested. See the example below for
+    file name indication. To note, it is important for plot.py in where you store your similarity file:
 
 ```sh
 simlarity file: jcard_sim_1iter_top10.txt
