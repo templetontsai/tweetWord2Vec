@@ -44,6 +44,7 @@ public class MongoDBImpl implements DBInterface {
 
         config = Properties.getConfig();
         if (config != null) {
+            log.debug("property file is used");
             hostname = config.getString("database.hostname");
             port = config.getInt("database.port");
             databaseName = config.getString("database.name");

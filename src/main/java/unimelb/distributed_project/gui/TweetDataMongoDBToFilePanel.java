@@ -27,8 +27,11 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
     final static Logger log = Logger.getLogger(TweetDataMongoDBToFilePanel.class);
     private JLabel label1 = null;
     private JTextField tweetDataFilePathTextField = null;
-    private JButton browseButton;
-    private JButton tweetDataDBToFile;
+    private JButton browseButton = null;
+    private JLabel label2 = null;
+    private JTextField DBCollectiontextField = null;
+    private String DBCollection = null;
+    private JButton tweetDataDBToFile = null;
     private String tweetDataFilePath = null;
     private JFrame mainFrame = null;
 
@@ -51,19 +54,19 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
         label1 = new JLabel();
         tweetDataFilePathTextField = new JTextField();
         browseButton = new JButton();
+        label2 = new JLabel();
+        DBCollectiontextField = new JTextField();
         tweetDataDBToFile = new JButton();
-
-
         setLayout(new FormLayout(
-                "8*(default, $lcgap), default",
-                "7*(default, $lgap), default"));
+            "46dlu, $lcgap, 121dlu, 5dlu, default",
+            "7*(default, $lgap), default"));
 
-
+        //---- label1 ----
         label1.setText("Save Data To");
-        add(label1, CC.xy(3, 3));
-        add(tweetDataFilePathTextField, CC.xywh(5, 3, 9, 1));
+        add(label1, CC.xy(1, 3));
+        add(tweetDataFilePathTextField, CC.xy(3, 3));
 
-
+        //---- browseButton ----
         browseButton.setText("Browse");
         browseButton.addActionListener(new ActionListener() {
             @Override
@@ -71,18 +74,23 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
                 browseButtonActionPerformed(e);
             }
         });
-        add(browseButton, CC.xy(15, 3));
+        add(browseButton, CC.xy(5, 3));
 
+        //---- label2 ----
+        label2.setText("DB Collection");
+        add(label2, CC.xy(1, 5));
+        add(DBCollectiontextField, CC.xy(3, 5));
 
+        //---- tweetDataDBToFile ----
         tweetDataDBToFile.setText("Transform");
         tweetDataDBToFile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 tweetDataDBToFileActionPerformed(e);
-
             }
         });
-        add(tweetDataDBToFile, CC.xy(13, 5));
+        add(tweetDataDBToFile, CC.xy(5, 5));
+
 
     }
 
@@ -93,15 +101,16 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
      */
     private void tweetDataDBToFileActionPerformed(ActionEvent e) {
 
-
-        if (tweetDataFilePath != null && !tweetDataFilePath.equals("")) {
+        DBCollection = DBCollectiontextField.getText();
+        if (tweetDataFilePath != null && !tweetDataFilePath.equals("") && !DBCollection.equals
+                ("")) {
             tweetDataFilePath = tweetDataFilePathTextField.getText().trim();
 
             Thread tweetDBToFile = new Thread(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        if (TweetWord2VecUtils.saveDBTweetToFile(tweetDataFilePath)) {
+                        if (TweetWord2VecUtils.saveDBTweetToFile(tweetDataFilePath, DBCollection)) {
                             JOptionPane.showMessageDialog(mainFrame,
                                     "Transformation is one",
                                     "Transformation Done",
@@ -158,6 +167,5 @@ public class TweetDataMongoDBToFilePanel extends JPanel {
 
         }
     }
-
 
 }

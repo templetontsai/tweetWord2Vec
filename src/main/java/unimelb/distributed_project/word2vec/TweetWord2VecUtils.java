@@ -5,6 +5,7 @@
 package unimelb.distributed_project.word2vec;
 
 import com.mongodb.Block;
+import com.mongodb.DBCollection;
 import com.mongodb.client.FindIterable;
 import info.debatty.java.stringsimilarity.Jaccard;
 import org.apache.log4j.Logger;
@@ -110,14 +111,14 @@ public class TweetWord2VecUtils {
      * This function performs reading from MongoDB collection to a text file
      *
      * @param fileName the destination of where to save the transformed file
+     * @param DBCollection the db collection is chosen to transform from
      * @return boolean to indicate is running done
      * @throws Exception the exceptions while transforming db data to text file
      */
-    public static boolean saveDBTweetToFile(String fileName) throws Exception {
+    public static boolean saveDBTweetToFile(String fileName, String DBCollection) throws Exception {
         DBInterface dbConn = new MongoDBImpl();
 
-        String tweetStore = "EU_Refugee";
-        FindIterable<Document> iterableDocs = dbConn.getDocs(tweetStore);
+        FindIterable<Document> iterableDocs = dbConn.getDocs(DBCollection);
 
         File f = new File(fileName);
         f.delete();
@@ -142,8 +143,6 @@ public class TweetWord2VecUtils {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-                log.debug(text);
 
             }
 

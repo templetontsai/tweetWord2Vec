@@ -6,13 +6,14 @@ This is a maven project application with GUI for running several features agains
 
 The application is built with several presumptions. Please make sure you have the following packages installed before you run the package.
 
-  - MongoDB: If you are running the feature in this application to transform text in tweet data in MongoDB collection to text file. You need to have the corresponding databse and collection with the right configuration. In the application, it uses the following configuration for MongoDB.
+  - MongoDB: If you are running the feature from MongoDB collection to text file. You need to have the property file in where you are running the application. The contect of the property file is shown as follow:
     
+    Ex: sharon.property
     - hostname: localhost
     - port: 27017
     - databaseName: sharonDB
     - databaseUser: sharon
-    - databasePassword: xxxx ---> mask for security reason
+    - databasePassword: xxxx
 
   - Python: The visualization of data is implemented in a different program. The implementation is in plot.py. It uses the plotting library, matlibplot. Therefore, please ensure the following python packages are installed as well.
     - numpy
