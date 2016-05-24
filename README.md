@@ -47,7 +47,7 @@ In this tab panel, it performs the training process for vectorization. If you le
   - windowSize: 5
   - minWordFeq: 5
   - numIteration: 5
-  - layerSize: 5
+  - layerSize: 100
   - seed: 5
   - learning rate: 0.025
 
