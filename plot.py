@@ -28,7 +28,7 @@ def plotJcardSim(argv):
 	
 	# add some text for labels, title and axes ticks
 	ax.set_ylabel('Jacard Similarity')
-	ax.set_title('Jacard Similarity of Two Different Training Set')
+	ax.set_title('Jacard Similarity of Two Different Word2Vec Files')
 	ax.set_xticks(ind)
 	ax.set_xticklabels([item for item in terms], rotation='vertical')
 	

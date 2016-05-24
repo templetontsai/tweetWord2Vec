@@ -411,8 +411,9 @@ public class JacardSimilarityMeasurePanel extends JPanel {
      * @param e ActionEvent object
      */
     private void visualizedButtonActionPerformed(ActionEvent e) {
-
+        jcardSimFilePath = simOutputPathTextField.getText();
         if (jcardSimFilePath != null && !jcardSimFilePath.equals("")) {
+
             File f = new File(jcardSimFilePath);
             //Visualize it with Python
             try {
